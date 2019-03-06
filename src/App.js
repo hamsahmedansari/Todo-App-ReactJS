@@ -4,7 +4,18 @@ import Todo from "./component/todo/todo";
 
 class App extends Component {
   render() {
-    return <Todo />;
+    return (
+      <React.Fragment>
+        <Todo />
+        <Todo />
+        <Todo />
+        <Todo />
+        <Todo />
+        <Todo />
+        <Todo />
+        <Todo />
+      </React.Fragment>
+    );
   }
 }
 
