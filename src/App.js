@@ -1,19 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
-import Todo from "./component/todo/todo";
+import TodoRow from "./component/todo-row/todo-row";
 
 class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
+        <TodoRow />
       </React.Fragment>
     );
   }

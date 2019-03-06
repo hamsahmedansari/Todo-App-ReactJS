@@ -1,0 +1,46 @@
+.todo-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: stretch;
+  align-items: center;
+  align-content: flex-start;
+
+  max-height: 130px;
+  .more {
+    order: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+    max-width: 120px;
+    max-height: 120px;
+    position: relative;
+    transition-duration: 0.3s;
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+    .todo {
+      overflow: hidden;
+      filter: blur(1px) opacity(0.9);
+      background: #000;
+      //   border: 1px solid;
+      color: #fff;
+    }
+    &:hover .todo {
+      filter: blur(0px) opacity(1);
+    }
+    &:hover::after {
+      content: "view all";
+      background: #000;
+      color: #fff;
+      filter: blur(10px) opacity(0.4);
+    }
+  }
+}

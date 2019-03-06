@@ -7,11 +7,25 @@ class Todo extends Component {
     this.state = {};
   }
   render() {
-    let todo = "Lorem ipsum dolor sit amet consectetur";
+    let todo = this.props.text;
+    let style =
+      this.props.width && this.props.height
+        ? {
+            width: this.props.width + "px",
+            height: this.props.height + "px"
+          }
+        : {
+            width: "100px",
+            height: "100px"
+          };
+
     return (
       <React.Fragment>
-        <div className="todo" style={{ width: "100px", height: "100px" }}>
-          <p>{todo.slice(0, 35).concat("...")}</p>
+        <div
+          className={!isNaN(todo) ? "todo" : "todo-hover todo"}
+          style={style}
+        >
+          <p>{todo.length > 35 ? todo.slice(0, 35).concat("...") : todo}</p>
         </div>
       </React.Fragment>
     );
