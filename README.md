@@ -1,6 +1,7 @@
 ## Dependency Using
 
 node-sass
+Font-Awesome-4
 
 ### `npm start`
 

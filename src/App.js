@@ -1,20 +1,36 @@
 import React, { Component } from "react";
+import "font-awesome/scss/font-awesome.scss";
 import "./App.scss";
-import Left from "./component/left/left";
-import Right from "./component/right/right";
-
+import Open from "./component/open/open";
+import InProgress from "./component/inprogress/inprogress";
+import Done from "./component/done/done";
 class App extends Component {
   render() {
     return (
       <React.Fragment>
         {/* Header */}
-        <div className="header-container">ToDo App Using React</div>
+        <div className="header-container flex-container">
+          <div className="item left-logo flex-container">
+            <i className="fa fa-sticky-note-o	logo-icon item" />
+            <span className="logo item">
+              <h2>
+                todo<span>With</span>
+                <span>React</span>
+              </h2>
+            </span>
+          </div>
+          {/* <div className="item left-logo flex-container">
+            <i className="fa fa-plus-square-o 	add-icon item" />
+          </div> */}
+        </div>
 
         <div className="flex-container w-100 h-100 outer-container">
-          {/* Left */}
-          <Left />
-          {/* Right */}
-          <Right />
+          {/* Open */}
+          <Open />
+          {/* InProgress */}
+          <InProgress />
+          {/* Done */}
+          <Done />
         </div>
       </React.Fragment>
     );

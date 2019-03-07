@@ -1,0 +1,36 @@
+.done {
+  flex-wrap: wrap;
+  flex-direction: column;
+  .section {
+    padding: 10px;
+  }
+  .inner-box {
+    padding: 10px;
+    max-width: 400px;
+    background: #bdbdbd;
+    margin-left: 5px;
+  }
+  header {
+    flex-wrap: wrap;
+    justify-content: baseline;
+    flex-direction: row;
+    align-items: center;
+    width: 300px;
+    color: #fff;
+    i {
+      font-size: 18px;
+      margin-right: 20px;
+      margin-left: 10px;
+    }
+    :nth-child(2) {
+      flex-grow: 1;
+    }
+    :nth-last-child() {
+      margin-right: 10px;
+    }
+    h4 {
+      margin: 0;
+      font-weight: 100;
+    }
+  }
+}
