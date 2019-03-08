@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./style.scss";
 import ActivityPanel from "./activityPanel/activityPanel";
 import ActionBar from "./actionBar/actionBar";
+import Add from "./add/add";
 class SideBar extends Component {
   constructor(props) {
     super(props);
@@ -10,7 +11,8 @@ class SideBar extends Component {
   render() {
     return (
       <div className="sidebar flex-container">
-        <ActivityPanel />
+        {/* <ActivityPanel /> */}
+        <Add />
         <ActionBar />
       </div>
     );
