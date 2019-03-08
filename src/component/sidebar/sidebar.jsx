@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./style.scss";
-import Activity from "../activity/activity";
-
+import ActivityPanel from "./activityPanel/activityPanel";
+import ActionBar from "./actionBar/actionBar";
 class SideBar extends Component {
   constructor(props) {
     super(props);
@@ -9,45 +9,9 @@ class SideBar extends Component {
   }
   render() {
     return (
-      <div className="sidebar">
-        <div className="inner">
-          <div className="flex-container header">
-            <div className="item">
-              <h3>Activity</h3>
-            </div>
-            <div className="item icon">
-              <i className="fa fa-paper-plane-o" />
-            </div>
-          </div>
-          <div className="flex-container section">
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-            <Activity />
-          </div>
-        </div>
+      <div className="sidebar flex-container">
+        <ActivityPanel />
+        <ActionBar />
       </div>
     );
   }
