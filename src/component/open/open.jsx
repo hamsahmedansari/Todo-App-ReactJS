@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./style.scss";
+import Todo from "../todo/todo";
 class Open extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +21,11 @@ class Open extends Component {
               <span>1</span>
             </div>
           </header>
+        </div>
+        <div className="item section">
+          <Todo title="lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem" />
+          <Todo title="lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem" />
+          <Todo title="lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem" />
         </div>
       </div>
     );

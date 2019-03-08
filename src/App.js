@@ -32,6 +32,10 @@ class App extends Component {
           {/* Done */}
           <Done />
         </div>
+        {/* addBtn */}
+        <button className="float-btn">
+          <i className="fa fa-plus-square-o" />
+        </button>
       </React.Fragment>
     );
   }

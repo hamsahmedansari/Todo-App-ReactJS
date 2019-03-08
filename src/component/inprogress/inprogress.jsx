@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Todo from "../todo/todo";
 import "./style.scss";
 
 class InProgress extends Component {
@@ -21,6 +22,13 @@ class InProgress extends Component {
               <span>1</span>
             </div>
           </header>
+        </div>
+        <div className="item section">
+          <Todo title="lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem" />
+          <Todo title="lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem" />
+          <Todo title="lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem" />
+          <Todo title="lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem" />
+          <Todo title="lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem" />
         </div>
       </div>
     );
