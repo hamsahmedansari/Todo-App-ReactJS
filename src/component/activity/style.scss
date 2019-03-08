@@ -1,0 +1,46 @@
+.activity {
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: last baseline;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  position: relative;
+  width: 100%;
+  .icon {
+    background: #29b6f6;
+    padding: 5px 8px;
+    border-radius: 40px;
+    border: 1px dashed #fff;
+    margin-right: 10px;
+  }
+  .activity-section {
+    flex-wrap: wrap;
+    flex-direction: column;
+    .date {
+      font-size: 11px;
+      color: #ccc;
+      opacity: 0.5;
+    }
+    .details {
+      font-size: 16px;
+      color: #ccc;
+    }
+    p,
+    h5 {
+      margin: 0;
+      padding: 0;
+      max-width: 200px;
+    }
+  }
+}
+.activity::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 50px;
+  background: #ccc;
+  top: 101%;
+  left: 6%;
+  border-radius: 160px;
+}

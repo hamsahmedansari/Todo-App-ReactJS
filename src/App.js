@@ -4,6 +4,7 @@ import "./App.scss";
 import Open from "./component/open/open";
 import InProgress from "./component/inprogress/inprogress";
 import Done from "./component/done/done";
+import SideBar from "./component/sidebar/sidebar";
 class App extends Component {
   render() {
     return (
@@ -36,6 +37,8 @@ class App extends Component {
         <button className="float-btn">
           <i className="fa fa-plus-square-o" />
         </button>
+        {/* sideBar */}
+        <SideBar />
       </React.Fragment>
     );
   }
