@@ -165,3 +165,18 @@ body {
 .btn.grey:focus {
   background-color: #ffab91;
 }
+
+//
+.section:hover {
+  .todo:not(.active) {
+    // transform: scale(1.1);
+    filter: blur(5px) opacity(0.5);
+  }
+}
+.todo:not(.active):hover {
+  transform: scale(1.1);
+  filter: blur(0px) opacity(1) !important;
+}
+.todo.active {
+  filter: blur(0px) opacity(1);
+}
