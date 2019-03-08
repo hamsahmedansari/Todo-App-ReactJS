@@ -27,6 +27,20 @@
       display: none;
     }
   }
+  .inner::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: rgba(10, 10, 10, 0.39);
+  }
+
+  .inner::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgba(10, 10, 10, 0.39);
+  }
+
+  .inner::-webkit-scrollbar-thumb {
+    background-color: #29b6f6;
+    border-radius: 10px;
+  }
   h3 {
     font-weight: lighter;
     margin: 0;
