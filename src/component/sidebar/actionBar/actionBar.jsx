@@ -8,13 +8,28 @@ class ActionBar extends Component {
   render() {
     return (
       <div className="actionBar item flex-container">
-        <button className="item btn close">
+        <button
+          className="item btn close"
+          onClick={() => this.props.handleDestroy()}
+        >
           <i className="fa fa-close" />
         </button>
-        <button className="item btn add">
+        <button
+          className={
+            this.props.panel === "add" ? "item btn add active" : "item btn add"
+          }
+          onClick={() => this.props.handleSide("add")}
+        >
           <i className="fa fa-plus" />
         </button>
-        <button className="item btn activity active">
+        <button
+          className={
+            this.props.panel === "activity"
+              ? "item btn activity active"
+              : "item btn add"
+          }
+          onClick={() => this.props.handleSide("activity")}
+        >
           <i className="fa fa-exclamation-triangle" />
         </button>
       </div>
