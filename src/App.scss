@@ -141,6 +141,12 @@ body {
 
   transition: width 0.2s ease-out, padding-top 0.2s ease-out;
 }
+.btn:disabled {
+  cursor: not-allowed;
+  text-decoration: line-through;
+  background-color: #000 !important;
+  color: #fff;
+}
 .btn.blue {
   background-color: #29b6f6;
 }

@@ -3,7 +3,6 @@ import Open from "../open/open";
 import InProgress from "../inprogress/inprogress";
 import Done from "../done/done";
 import SideBar from "../sidebar/sidebar";
-
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -15,8 +14,6 @@ class Home extends Component {
     this.setState({ isSideBarActive: false });
   };
   handleCreateSideBar = () => {
-    console.log("asd");
-
     this.setState({ isSideBarActive: true });
   };
   render() {

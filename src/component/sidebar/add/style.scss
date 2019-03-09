@@ -58,5 +58,15 @@
       width: 100%;
       padding: 10px;
     }
+    .error {
+      input,
+      textarea,
+      select {
+        border: 2px solid #ff5722;
+      }
+      label {
+        color: #ff5722;
+      }
+    }
   }
 }
