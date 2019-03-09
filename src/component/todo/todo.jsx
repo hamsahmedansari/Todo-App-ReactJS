@@ -14,6 +14,8 @@ class Todo extends Component {
   }
 
   handleTodo = ({ currentTarget: div }) => {
+    console.log(div);
+
     let status = this.state.isActive;
     let { title } = this.props;
     if (status) {
@@ -26,18 +28,36 @@ class Todo extends Component {
     });
   };
 
+  handleDone = () => {
+    console.log("done");
+  };
+
+  handleInProgress = () => {
+    console.log("inProgress");
+  };
+
+  handleDelete = () => {
+    console.log("Delete");
+  };
+
   render() {
     let { isActive, title } = this.state;
     return (
-      <div className="todo flex-container" onClick={this.handleTodo}>
-        <div className="todo-header item flex-container">
+      <div className="todo flex-container">
+        <div
+          className="todo-header item flex-container"
+          onClick={this.handleTodo}
+        >
           <div className="title item">
             <h4>{title}</h4>
           </div>
           <div className="priority item">MG</div>
         </div>
         {isActive && (
-          <div className="todo-section item flex-container">
+          <div
+            className="todo-section item flex-container"
+            onClick={this.handleTodo}
+          >
             <div className="content item">
               <p>Lorem ipsum dolor sit amet consectetur adipisicing...</p>
             </div>
@@ -45,9 +65,18 @@ class Todo extends Component {
           </div>
         )}
         <div className="todo-action item flex-container">
-          <button className="item btn blue">Done</button>
-          <button className="item btn purple">InProgress</button>
-          <button className="item btn grey">Delete</button>
+          <button className="item btn blue" onClick={() => this.handleDone()}>
+            Done
+          </button>
+          <button
+            className="item btn purple"
+            onClick={() => this.handleInProgress()}
+          >
+            InProgress
+          </button>
+          <button className="item btn grey" onClick={() => this.handleDelete()}>
+            Delete
+          </button>
         </div>
       </div>
     );
