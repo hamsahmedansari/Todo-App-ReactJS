@@ -83,7 +83,10 @@ class Todo extends Component {
             onClick={this.handleTodo}
           >
             <div className="content item">
-              <p>{this.props.data.description}</p>
+              <p>
+                {this.props.data.description.slice(0, 1).toUpperCase() +
+                  this.props.data.description.slice(1).toLowerCase()}
+              </p>
             </div>
             <span className="date item">{date()}</span>
           </div>

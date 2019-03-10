@@ -19,7 +19,7 @@ class Done extends Component {
               <h4>Done</h4>
             </div>
             <div className="item">
-              <span>1</span>
+              <span>{this.props.data.length}</span>
             </div>
           </header>
         </div>
