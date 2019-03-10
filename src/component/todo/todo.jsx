@@ -59,9 +59,9 @@ class Todo extends Component {
             onClick={this.handleTodo}
           >
             <div className="content item">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing...</p>
+              <p>{this.props.description}</p>
             </div>
-            <span className="date item">10 days ago</span>
+            <span className="date item">{this.props.date}</span>
           </div>
         )}
         <div className="todo-action item flex-container">

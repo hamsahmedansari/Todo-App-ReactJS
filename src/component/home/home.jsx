@@ -3,6 +3,8 @@ import Open from "../open/open";
 import InProgress from "../inprogress/inprogress";
 import Done from "../done/done";
 import SideBar from "../sidebar/sidebar";
+import { connect } from "react-redux";
+import { getTodos } from "../../store/action/todo";
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -10,6 +12,10 @@ class Home extends Component {
       isSideBarActive: false
     };
   }
+  componentWillMount() {
+    this.props.getTodos();
+  }
+
   handleDestroy = () => {
     this.setState({ isSideBarActive: false });
   };
@@ -17,6 +23,12 @@ class Home extends Component {
     this.setState({ isSideBarActive: true });
   };
   render() {
+    let { todo } = this.props;
+
+    let open = todo.filter(item => item.status === "open");
+    let inprogress = todo.filter(item => item.status === "inprogress");
+    let done = todo.filter(item => item.status === "done");
+
     return (
       <React.Fragment>
         {/* Header */}
@@ -37,11 +49,11 @@ class Home extends Component {
 
         <div className="flex-container w-100 h-100 outer-container">
           {/* Open */}
-          <Open />
+          <Open data={open} />
           {/* InProgress */}
-          <InProgress />
+          <InProgress data={inprogress} />
           {/* Done */}
-          <Done />
+          <Done data={done} />
         </div>
         {/* addBtn */}
         <button
@@ -59,4 +71,19 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    todo: state.todo.todos
+  };
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    getTodos: () => {
+      dispatch(getTodos());
+    }
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);

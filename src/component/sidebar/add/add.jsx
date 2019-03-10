@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./style.scss";
+import { connect } from "react-redux";
+import { addTodo } from "../../../store/action/todo";
 class Add extends Component {
   constructor(props) {
     super(props);
@@ -8,11 +10,16 @@ class Add extends Component {
         title: "",
         description: "",
         type: "",
+        isDelete: false,
         status: ""
       },
       error: true
     };
   }
+  componentDidMount() {
+    console.log(this.props);
+  }
+
   handleInputBlur = ({ currentTarget: target }) => {
     let label = target.parentElement.children[0];
     if (target.value) return label.classList.add("active");
@@ -50,6 +57,15 @@ class Add extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
+    this.props.addTodo(this.state.data);
+    let data = {
+      title: "",
+      description: "",
+      type: "",
+      status: "",
+      isDelete: false
+    };
+    this.setState({ data });
   };
 
   render() {
@@ -131,5 +147,19 @@ class Add extends Component {
     );
   }
 }
-
-export default Add;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    prop: state.todos
+  };
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    addTodo: param => {
+      dispatch(addTodo(param));
+    }
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Add);

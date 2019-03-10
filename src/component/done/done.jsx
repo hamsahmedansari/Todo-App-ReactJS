@@ -24,8 +24,14 @@ class Done extends Component {
           </header>
         </div>
         <div className="item section">
-          <Todo title="lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem" />
-          <Todo title="lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem" />
+          {this.props.data.map(item => (
+            <Todo
+              key={item._id}
+              title={item.title}
+              description={item.description}
+              date={item.date}
+            />
+          ))}
         </div>
       </div>
     );
