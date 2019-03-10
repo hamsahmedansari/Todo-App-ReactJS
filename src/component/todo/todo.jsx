@@ -5,7 +5,7 @@ import "./style.scss";
 class Todo extends Component {
   constructor(props) {
     super(props);
-    let title = props.title;
+    let title = props.data.title;
     title = title.length >= 30 ? title.slice(0, 30) + "..." : title;
     this.state = {
       isActive: false,
@@ -14,10 +14,8 @@ class Todo extends Component {
   }
 
   handleTodo = ({ currentTarget: div }) => {
-    console.log(div);
-
     let status = this.state.isActive;
-    let { title } = this.props;
+    let { title } = this.props.data;
     if (status) {
       div.classList.remove("active");
       title = title.length >= 30 ? title.slice(0, 30) + "..." : title;
@@ -42,6 +40,30 @@ class Todo extends Component {
 
   render() {
     let { isActive, title } = this.state;
+    let date = () => {
+      let date1 = new Date(this.props.data.date);
+      let date2 = new Date();
+      let timeDiff = Math.abs(date2.getTime() - date1.getTime());
+      let result;
+      if (Math.ceil(timeDiff / (1000 * 60 * 60 * 24)) > 1) {
+        result = String(Math.ceil(timeDiff / (1000 * 60 * 60 * 24))).concat(
+          " days"
+        );
+      } else {
+        if (Math.ceil(timeDiff / (1000 * 60 * 60)) > 1) {
+          result = String(Math.ceil(timeDiff / (1000 * 60 * 60))).concat(
+            " hours"
+          );
+        } else {
+          if (Math.ceil(timeDiff / (1000 * 60) > 1)) {
+            result = String(Math.ceil(timeDiff / (1000 * 60))).concat(" mins");
+          } else {
+            result = String(Math.ceil(timeDiff / 1000)).concat(" sec");
+          }
+        }
+      }
+      return result;
+    };
     return (
       <div className="todo flex-container">
         <div
@@ -51,7 +73,7 @@ class Todo extends Component {
           <div className="title item">
             <h4>{title}</h4>
           </div>
-          <div className="priority item">MG</div>
+          <div className="priority item">{this.props.data.type}</div>
         </div>
         {isActive && (
           <div
@@ -59,9 +81,9 @@ class Todo extends Component {
             onClick={this.handleTodo}
           >
             <div className="content item">
-              <p>{this.props.description}</p>
+              <p>{this.props.data.description}</p>
             </div>
-            <span className="date item">{this.props.date}</span>
+            <span className="date item">{date()}</span>
           </div>
         )}
         <div className="todo-action item flex-container">

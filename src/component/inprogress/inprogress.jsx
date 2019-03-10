@@ -25,12 +25,7 @@ class InProgress extends Component {
         </div>
         <div className="item section">
           {this.props.data.map(item => (
-            <Todo
-              key={item._id}
-              title={item.title}
-              description={item.description}
-              date={item.date}
-            />
+            <Todo key={item._id} data={item} />
           ))}{" "}
         </div>
       </div>
