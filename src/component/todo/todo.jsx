@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import "./style.scss";
 import { connect } from "react-redux";
 import { deleteTodo } from "../../store/action/todo";
+import { addTodo } from "../../store/action/todo";
 class Todo extends Component {
   constructor(props) {
     super(props);
@@ -33,6 +34,9 @@ class Todo extends Component {
 
   handleInProgress = () => {
     console.log("inProgress");
+    let data = this.props.data;
+    data.status = "inprogress";
+    this.props.addTodo(data);
   };
 
   handleDelete = () => {
@@ -111,13 +115,16 @@ class Todo extends Component {
 }
 const mapStateToProps = (state, ownProps) => {
   return {
-    prop: ownProps
+    prop: state
   };
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     deleteTodo: param => {
       dispatch(deleteTodo(param));
+    },
+    addTodo: param => {
+      dispatch(addTodo(param));
     }
   };
 };
