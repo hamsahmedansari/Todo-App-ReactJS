@@ -19,6 +19,15 @@ export default (state = InitialState, action) => {
         todos: tempTodo
       };
     }
+    case actionType.DELETE_TODO: {
+      let tempTodo = state.todos.filter(
+        item => item._id !== action.payload._id
+      );
+      return {
+        ...state,
+        todos: tempTodo
+      };
+    }
     default:
       return state;
   }

@@ -13,3 +13,7 @@ export const save = async Todo => {
 export const getAll = async () => {
   return await http.get(config.userEndPoint + `/todo`);
 };
+
+export const deleteTodos = async ({ _id }) => {
+  return await http.delete(config.userEndPoint + `/todo/${_id}`);
+};

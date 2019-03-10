@@ -1,5 +1,5 @@
 import actionType from "../constant/constant";
-import { save, getAll } from "../../service/todo";
+import { save, getAll, deleteTodos } from "../../service/todo";
 export function addTodo(param) {
   return async dispatch => {
     await save(param)
@@ -18,6 +18,18 @@ export function getTodos(param) {
       .then(({ data: res }) => {
         dispatch({
           type: actionType.GET_ALL_TODO,
+          payload: res.data
+        });
+      })
+      .catch(err => console.log(err));
+  };
+}
+export function deleteTodo(param) {
+  return async dispatch => {
+    await deleteTodos(param)
+      .then(({ data: res }) => {
+        dispatch({
+          type: actionType.DELETE_TODO,
           payload: res.data
         });
       })

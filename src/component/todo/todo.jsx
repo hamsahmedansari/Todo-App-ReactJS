@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
 import "./style.scss";
-
+import { connect } from "react-redux";
+import { deleteTodo } from "../../store/action/todo";
 class Todo extends Component {
   constructor(props) {
     super(props);
@@ -36,6 +37,7 @@ class Todo extends Component {
 
   handleDelete = () => {
     console.log("Delete");
+    this.props.deleteTodo(this.props.data);
   };
 
   render() {
@@ -104,5 +106,19 @@ class Todo extends Component {
     );
   }
 }
-
-export default Todo;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    prop: ownProps
+  };
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    deleteTodo: param => {
+      dispatch(deleteTodo(param));
+    }
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Todo);
