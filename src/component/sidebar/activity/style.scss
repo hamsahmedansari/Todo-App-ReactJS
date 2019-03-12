@@ -1,18 +1,28 @@
 .activity {
   flex-wrap: wrap;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: last baseline;
-  margin-top: 10px;
-  margin-bottom: 40px;
   position: relative;
   width: 100%;
+  height: 100px;
+  margin-bottom: 21px;
   .icon {
     background: #29b6f6;
     padding: 5px 8px;
     border-radius: 40px;
     border: 1px dashed #fff;
     margin-right: 10px;
+  }
+  .icon::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 50px;
+    background: #ccc;
+    bottom: 0%;
+    left: 6%;
+    border-radius: 160px;
   }
   .activity-section {
     flex-wrap: wrap;
@@ -33,14 +43,4 @@
       max-width: 200px;
     }
   }
-}
-.activity::after {
-  content: "";
-  position: absolute;
-  width: 2px;
-  height: 50px;
-  background: #ccc;
-  top: 101%;
-  left: 6%;
-  border-radius: 160px;
 }
