@@ -17,6 +17,12 @@
     height: 20px;
     text-align: center;
   }
+  .icon.done {
+    background: #bdbdbd !important;
+  }
+  .icon.inprogress {
+    background: #9575cd !important;
+  }
   .icon::after {
     content: "";
     position: absolute;
