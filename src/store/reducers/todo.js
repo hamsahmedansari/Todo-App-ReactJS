@@ -6,14 +6,20 @@ export default (state = InitialState, action) => {
   switch (action.type) {
     case actionType.ADD_TODO: {
       let tempTodo = [...state.todos];
-      tempTodo.push(action.payload);
+      tempTodo.unshift(action.payload);
       return {
         ...state,
         todos: tempTodo
       };
     }
     case actionType.GET_ALL_TODO: {
-      let tempTodo = action.payload;
+      let tempTodo = action.payload.sort((a, b) => {
+        let d1 = new Date(a.date),
+          d2 = new Date(b.date);
+        if (d1 > d2) return -1;
+        if (d1 < d2) return 1;
+        return 0;
+      });
       return {
         ...state,
         todos: tempTodo
