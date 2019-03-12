@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import Activity from "../activity/activity";
-
+import { connect } from "react-redux";
 class ActivityPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
   render() {
+    let { todo } = this.props;
     return (
       <div className="inner item">
         <div className="flex-container header">
@@ -18,36 +19,25 @@ class ActivityPanel extends Component {
           </div>
         </div>
         <div className="flex-container section">
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
-          <Activity />
+          {todo.map(item => (
+            <Activity key={item._id} data={item} />
+          ))}
         </div>
       </div>
     );
   }
 }
 
-export default ActivityPanel;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    todo: state.todo.todos
+  };
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {};
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ActivityPanel);
