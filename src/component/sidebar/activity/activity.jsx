@@ -27,11 +27,19 @@ class Activity extends Component {
       }
       return result;
     };
-    let { title, description } = this.props.data;
+    let { title, description, status } = this.props.data;
     return (
       <div className="item activity flex-container">
         <div className="item icon">
-          <i className="fa fa-paper-plane-o" />
+          <i
+            className={`fa ${
+              status === "open"
+                ? "fa-lightbulb-o"
+                : status === "inprogress"
+                ? "fa-bar-chart-o"
+                : "fa-check-square-o"
+            }`}
+          />
         </div>
         <div className="item">
           <div className="flex-container activity-section">
