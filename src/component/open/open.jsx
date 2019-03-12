@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import "./style.scss";
 import Todo from "../todo/todo";
+import { connect } from "react-redux";
 class Open extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
   render() {
+    let { todo } = this.props;
+    let open = todo.filter(item => item.status === "open");
     return (
       <div className="item open">
         <div className="flex-container p-relative inner-box">
@@ -18,13 +21,13 @@ class Open extends Component {
               <h4>Open</h4>
             </div>
             <div className="item">
-              <span>{this.props.data.length}</span>
+              <span>{open.length}</span>
             </div>
           </header>
         </div>
         <div className="item section">
-          {this.props.data.map(item => (
-            <Todo key={item._id} data={item} />
+          {open.map(item => (
+            <Todo key={item._id} data={item} active="open" />
           ))}
         </div>
       </div>
@@ -32,4 +35,16 @@ class Open extends Component {
   }
 }
 
-export default Open;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    todo: state.todo.todos
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {};
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Open);

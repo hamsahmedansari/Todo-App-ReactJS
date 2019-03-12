@@ -16,10 +16,6 @@ class Add extends Component {
       error: true
     };
   }
-  componentDidMount() {
-    console.log(this.props);
-  }
-
   handleInputBlur = ({ currentTarget: target }) => {
     let label = target.parentElement.children[0];
     if (target.value) return label.classList.add("active");
@@ -65,7 +61,8 @@ class Add extends Component {
       status: "",
       isDelete: false
     };
-    this.setState({ data });
+    let error = true;
+    this.setState({ data, error });
   };
 
   render() {
@@ -149,7 +146,7 @@ class Add extends Component {
 }
 const mapStateToProps = (state, ownProps) => {
   return {
-    prop: state.todos
+    prop: state
   };
 };
 const mapDispatchToProps = (dispatch, ownProps) => {

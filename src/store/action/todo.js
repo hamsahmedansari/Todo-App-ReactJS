@@ -12,6 +12,19 @@ export function addTodo(param) {
       .catch(err => console.log(err));
   };
 }
+export function changeTodo(param) {
+  return async dispatch => {
+    await save(param)
+      .then(({ data: res }) => {
+        dispatch({
+          type: actionType.CHANGE_TODO,
+          payload: res.data
+        });
+      })
+      .catch(err => console.log(err));
+  };
+}
+
 export function getTodos(param) {
   return async dispatch => {
     await getAll()

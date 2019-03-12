@@ -23,12 +23,6 @@ class Home extends Component {
     this.setState({ isSideBarActive: true });
   };
   render() {
-    let { todo } = this.props;
-
-    let open = todo.filter(item => item.status === "open");
-    let inprogress = todo.filter(item => item.status === "inprogress");
-    let done = todo.filter(item => item.status === "done");
-
     return (
       <React.Fragment>
         {/* Header */}
@@ -49,11 +43,11 @@ class Home extends Component {
 
         <div className="flex-container w-100 h-100 outer-container">
           {/* Open */}
-          <Open data={open} />
+          <Open />
           {/* InProgress */}
-          <InProgress data={inprogress} />
+          <InProgress />
           {/* Done */}
-          <Done data={done} />
+          <Done />
         </div>
         {/* addBtn */}
         <button

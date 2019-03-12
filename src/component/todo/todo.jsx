@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import "./style.scss";
 import { connect } from "react-redux";
 import { deleteTodo } from "../../store/action/todo";
-import { addTodo } from "../../store/action/todo";
+import { changeTodo } from "../../store/action/todo";
 class Todo extends Component {
   constructor(props) {
     super(props);
@@ -30,13 +30,16 @@ class Todo extends Component {
 
   handleDone = () => {
     console.log("done");
+    let data = this.props.data;
+    data.status = "done";
+    this.props.changeTodo(data);
   };
 
   handleInProgress = () => {
     console.log("inProgress");
     let data = this.props.data;
     data.status = "inprogress";
-    this.props.addTodo(data);
+    this.props.changeTodo(data);
   };
 
   handleDelete = () => {
@@ -96,12 +99,17 @@ class Todo extends Component {
           </div>
         )}
         <div className="todo-action item flex-container">
-          <button className="item btn blue" onClick={() => this.handleDone()}>
+          <button
+            className="item btn blue"
+            onClick={() => this.handleDone()}
+            disabled={this.props.active === "done" ? true : false}
+          >
             Done
           </button>
           <button
             className="item btn purple"
             onClick={() => this.handleInProgress()}
+            disabled={this.props.active === "inprogress" ? true : false}
           >
             InProgress
           </button>
@@ -123,8 +131,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     deleteTodo: param => {
       dispatch(deleteTodo(param));
     },
-    addTodo: param => {
-      dispatch(addTodo(param));
+    changeTodo: param => {
+      dispatch(changeTodo(param));
     }
   };
 };

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Todo from "../todo/todo";
+import { connect } from "react-redux";
 import "./style.scss";
 
 class InProgress extends Component {
@@ -8,6 +9,8 @@ class InProgress extends Component {
     this.state = {};
   }
   render() {
+    let { todo } = this.props;
+    let inprogress = todo.filter(item => item.status === "inprogress");
     return (
       <div className="item inProgress">
         <div className="flex-container p-relative inner-box">
@@ -19,13 +22,13 @@ class InProgress extends Component {
               <h4>InProgress</h4>
             </div>
             <div className="item">
-              <span>{this.props.data.length}</span>
+              <span>{inprogress.length}</span>
             </div>
           </header>
         </div>
         <div className="item section">
-          {this.props.data.map(item => (
-            <Todo key={item._id} data={item} />
+          {inprogress.map(item => (
+            <Todo key={item._id} data={item} active="inprogress" />
           ))}{" "}
         </div>
       </div>
@@ -33,4 +36,16 @@ class InProgress extends Component {
   }
 }
 
-export default InProgress;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    todo: state.todo.todos
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {};
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(InProgress);
