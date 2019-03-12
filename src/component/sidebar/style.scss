@@ -117,3 +117,19 @@
     }
   }
 }
+@media only screen and (max-width: 380px) {
+  .sidebar {
+    .inner {
+      max-width: 200px;
+    }
+    .activity {
+      height: 110px;
+      > div {
+        width: 100%;
+      }
+      .icon::after {
+        display: none;
+      }
+    }
+  }
+}
