@@ -1,3 +1,4 @@
 {
-  "userEndPoint": "https://hamsahmedansari-todo-server.herokuapp.com"
+  "userEndPoint": "http://localhost:5000",
+  "other": "https://hamsahmedansari-todo-server.herokuapp.com"
 }
